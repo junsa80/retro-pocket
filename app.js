@@ -84,7 +84,7 @@
       const frame=$("emulator-frame");frame.hidden=false;
       // New iframe guarantees an isolated clean emulator runtime for every ROM.
       frame.src=`./runner.html?session=${Date.now()}`;
-      loadNote();closeDrawers();
+      loadNote();window.RetroGuideUI?.selectRom(file.name,romKey);closeDrawers();
       if(ext==='zip')showToast("ZIP 파일은 게임기 종류를 확인해 주세요.");
     }catch(e){showToast(`파일 준비 실패: ${e.message}`);connection("오류");}
   }

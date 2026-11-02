@@ -5,3 +5,15 @@
 .tool span:last-child,.screen-caption,.connection,.game-label,.hint,.feature-card p,.drawer-actions,.supported{font-size:12px}
 .version,.footer{font-size:12px}
 @media(orientation:landscape){.topbar{height:32px;min-height:32px}.footer{display:none}.screen-caption{padding-top:4px}.play-grid{padding:4px 8px}.tool{min-height:52px}.screen-inner{border-radius:4px}}
+
+/* Game guides live in an opt-in drawer, outside the playing surface. */
+#guide-drawer{width:min(540px,94vw);padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom))}
+.guide-match{font-size:12px;line-height:1.6;color:var(--mint);overflow-wrap:anywhere;margin:0}
+.guide-picker{display:flex;gap:8px}.guide-picker select{min-width:0;flex:1}.guide-picker button{flex-shrink:0}
+.guide-game-title{font-size:20px;line-height:1.4;margin:24px 0 10px}.guide-notice{padding:12px;border:1px solid #7f6d39;border-radius:8px;background:#352c17;color:#f7dfa0;font-size:13px;line-height:1.7}
+.guide-section h4{font-size:15px;color:var(--cyan);margin:22px 0 10px}.guide-section ul{padding-left:21px;margin:0}.guide-section li{font-size:14px;line-height:1.85;margin:10px 0;color:#d5e0ed}
+#guide-content details,.personal-notes{margin:18px 0;border-top:1px solid #33445b;padding-top:16px}
+#guide-content summary,.personal-notes summary{cursor:pointer;font-size:14px;line-height:1.7;color:var(--cyan);font-weight:700;min-height:36px}
+.secret-card,.source-card{padding:12px 0;border-bottom:1px solid #2c3a50}.secret-card h4{font-size:14px;margin:0 0 6px}.secret-card p,.source-card p{font-size:13px;line-height:1.8;margin:6px 0}.source-card b{font-size:13px}
+#guide-content a{color:#9cdaf6;font-size:12px;line-height:1.8;overflow-wrap:anywhere;text-underline-offset:3px}
+.start-screen p{font-size:12px}.start-button{font-size:13px}

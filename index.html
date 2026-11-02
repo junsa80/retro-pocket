@@ -8,13 +8,13 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon-192.png">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=0.2.0">
   <title>Retro Pocket · 개인용 웹 게임기</title>
 </head>
 <body>
  <div class="app">
    <header class="topbar">
-     <div class="brand"><span class="brand-icon">▣</span> RETRO <b>POCKET</b><span class="version">BETA 0.1.1</span></div>
+     <div class="brand"><span class="brand-icon">▣</span> RETRO <b>POCKET</b><span class="version">BETA 0.2.0</span></div>
      <div class="top-actions"><span id="game-label" class="game-label">ROM을 선택해 주세요</span><span id="connection" class="connection">● 대기</span></div>
    </header>
 
@@ -41,7 +41,7 @@
      </section>
 
      <nav class="rail right-rail" aria-label="화면 도구">
-       <button class="tool" id="guide-btn" title="공략 메모 열기"><span class="tool-icon">☷</span><span>공략 메모</span></button>
+       <button class="tool" id="guide-btn" title="게임 공략 열기"><span class="tool-icon">☷</span><span>공략</span></button>
        <button class="tool" id="fullscreen-btn" title="화면 전체화면"><span class="tool-icon">⛶</span><span>전체화면</span></button>
        <button class="tool" id="more-btn" title="저장 슬롯 및 기타 옵션"><span class="tool-icon">⚙</span><span>더보기</span></button>
      </nav>
@@ -52,11 +52,17 @@
 
  <div class="overlay" id="overlay" hidden></div>
  <aside class="drawer" id="guide-drawer" aria-labelledby="guide-title" aria-hidden="true">
-  <div class="drawer-top"><div><span class="eyebrow">NOTES</span><h2 id="guide-title">게임 공략 메모</h2></div><button class="close-btn" data-close="guide-drawer" aria-label="닫기">×</button></div>
-  <p class="hint">현재는 자동 공략이 아니라 <b>게임별 개인 메모</b>입니다. ROM을 다시 열면 메모가 복원됩니다.</p>
-  <label class="field-label" for="stage-note">현재 스테이지 / 목표 / 숨겨진 요소</label>
-  <textarea id="stage-note" placeholder="예) 5장: 왼쪽 마을 먼저 방문\n적 증원: 6턴 종료 시 남쪽\n숨겨진 아이템: 도적 필요" rows="9"></textarea>
-  <div class="drawer-actions"><span id="notes-status">기기에 자동 저장</span><button class="secondary-btn" data-close="guide-drawer">게임으로</button></div>
+  <div class="drawer-top"><div><span class="eyebrow">GUIDE</span><h2 id="guide-title">게임 공략</h2></div><button class="close-btn" data-close="guide-drawer" aria-label="닫기">×</button></div>
+  <p id="guide-match" class="guide-match" role="status"></p>
+  <label class="field-label" for="guide-game-select">공략 게임</label>
+  <div class="guide-picker"><select id="guide-game-select"><option value="">게임을 선택하세요</option></select><button id="guide-reset" class="secondary-btn" disabled>자동 연결</button></div>
+  <article id="guide-content" aria-label="게임 공략 내용"></article>
+  <details class="personal-notes"><summary>내 메모</summary>
+   <label class="field-label" for="stage-note">현재 스테이지 / 목표 / 숨겨진 요소</label>
+   <textarea id="stage-note" placeholder="직접 남길 메모가 있으면 여기에 적으세요." rows="6"></textarea>
+   <div class="drawer-actions"><span id="notes-status">기기에 자동 저장</span></div>
+  </details>
+  <div class="drawer-actions"><button class="secondary-btn" data-close="guide-drawer">게임으로</button></div>
  </aside>
 
  <aside class="drawer" id="more-drawer" aria-labelledby="more-title" aria-hidden="true">
@@ -76,6 +82,8 @@
  <div role="status" aria-live="polite" class="toast" id="toast"></div>
  <input id="rom-input" type="file" accept=".gba,.sfc,.smc,.nds,.gb,.gbc,.nes,.zip" hidden>
  <input id="state-input" type="file" accept=".state,.bin,application/octet-stream" hidden>
- <script defer src="./app.js"></script>
+ <script defer src="./guides-data.js?v=0.2.0"></script>
+ <script defer src="./guides-ui.js?v=0.2.0"></script>
+ <script defer src="./app.js?v=0.2.0"></script>
 </body>
 </html>
